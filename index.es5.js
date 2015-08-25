@@ -247,7 +247,7 @@ function createClient(region) {
           signer.addAuthorization(new _awsSdk2['default'].Config().credentials, new Date());
 
           context$2$0.next = 11;
-          return regeneratorRuntime.awrap((0, _nodeFetch2['default'])('https://apigateway.eu-west-1.amazonaws.com' + path, opts));
+          return regeneratorRuntime.awrap((0, _nodeFetch2['default'])('https://apigateway.' + region + '.amazonaws.com' + path, opts));
 
         case 11:
           response = context$2$0.sent;

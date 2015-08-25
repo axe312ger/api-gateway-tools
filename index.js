@@ -108,7 +108,7 @@ function createClient (region) {
     var signer = new AWS.Signers.V4(opts, 'apigateway')
     signer.addAuthorization(new AWS.Config().credentials, new Date())
 
-    const response = await fetch('https://apigateway.eu-west-1.amazonaws.com' + path, opts)
+    const response = await fetch(`https://apigateway.${region}.amazonaws.com${path}`, opts)
     const body = await response.json()
 
     if (response.status > 399) {
