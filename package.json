@@ -1,0 +1,26 @@
+{
+  "name": "api-gateway-tools",
+  "version": "1.0.0",
+  "description": "Utility lib for working with the AWS API Gateway API",
+  "main": "index.es5.js",
+  "dependencies": {
+    "aws-sdk": "^2.1.46",
+    "babel": "^5.8.21",
+    "babel-runtime": "^5.8.20",
+    "node-fetch": "^1.3.2"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21"
+  },
+  "scripts": {
+    "prepublish": "babel --stage=2 index.js > index.es5.js"
+  },
+  "keywords": [
+    "aws",
+    "api",
+    "apigateway",
+    "gateway"
+  ],
+  "author": "Stephen Sugden <me@stephensugden.com>",
+  "license": "MIT"
+}
