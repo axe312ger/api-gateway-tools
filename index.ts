@@ -143,7 +143,6 @@ function createClient (region: string) {
   const Host = `apigateway.${region}.amazonaws.com`
 
   return async function request<T>(methodAndPath: string, payload?: Object): Promise<T> {
-    console.log(methodAndPath, payload)
     const [method, path] = methodAndPath.split(' ')
     // this object matches the `Request` interface needed by AWS signers
     const headers : {[index:string]: string} = { Host };
