@@ -13,7 +13,11 @@
     "babel": "^5.8.21"
   },
   "scripts": {
-    "prepublish": "babel --stage=2 index.js > index.es5.js"
+    "Why we do the thing below": "We want to build master branch of TypeScript for async/await support",
+    "dev-setup": "git clone git@github.com:Microsoft/TypeScript && cd TypeScript && npm install && node_modules/.bin/jake local",
+    "prepublish": "[[ -d TypeScript ]] || npm run dev-setup; npm run typescript && npm run babel",
+    "typescript": "node TypeScript/built/local/tsc.js --experimentalAsyncFunctions --target ES6 index.ts",
+    "babel": "babel --stage=2 index.js > index.es5.js"
   },
   "keywords": [
     "aws",

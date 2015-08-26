@@ -1,0 +1,5 @@
+node_modules
+TypeScript
+
+# this is an intermediate es6 file created by the typescript compiler
+index.js
