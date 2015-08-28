@@ -119,7 +119,7 @@ function wrapMethodData (request: SendRequest, api: data.RestApi, resource: data
   return {arn, updateResponse, updateIntegration, updateIntegrationResponse}
 
   function arn (region: string, accountId: string, deploymentStage = '*') {
-    const path = resource.path.replace(/\{[^\/\}]+\}/g, '/*/')
+    const path = resource.path.replace(/\{[^\/\}]+\}/g, '*')
     return `arn:aws:execute-api:${region}:${accountId}:${api.id}/${deploymentStage}/${httpMethod}${path}`
   }
 

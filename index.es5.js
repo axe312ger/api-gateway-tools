@@ -234,7 +234,7 @@ function wrapMethodData(request, api, resource, httpMethod, methodData) {
     function arn(region, accountId) {
         var deploymentStage = arguments.length <= 2 || arguments[2] === undefined ? '*' : arguments[2];
 
-        var path = resource.path.replace(/\{[^\/\}]+\}/g, '/*/');
+        var path = resource.path.replace(/\{[^\/\}]+\}/g, '*');
         return "arn:aws:execute-api:" + region + ":" + accountId + ":" + api.id + "/" + deploymentStage + "/" + httpMethod + path;
     }
     function updateResponse(statusCode, params) {
@@ -267,7 +267,6 @@ function createClient(region) {
             return regeneratorRuntime.wrap(function callee$2$0$(context$3$0) {
                 while (1) switch (context$3$0.prev = context$3$0.next) {
                     case 0:
-                        console.log(methodAndPath, payload);
                         _methodAndPath$split = methodAndPath.split(' ');
                         _methodAndPath$split2 = _slicedToArray(_methodAndPath$split, 2);
                         method = _methodAndPath$split2[0];
@@ -294,29 +293,29 @@ function createClient(region) {
                         signer = new _awsSdk2["default"].Signers.V4(opts, 'apigateway');
 
                         signer.addAuthorization(new _awsSdk2["default"].Config().credentials, new Date());
-                        context$3$0.next = 12;
+                        context$3$0.next = 11;
                         return (0, _nodeFetch2["default"])('https://apigateway.eu-west-1.amazonaws.com' + path, opts);
 
-                    case 12:
+                    case 11:
                         response = context$3$0.sent;
-                        context$3$0.next = 15;
+                        context$3$0.next = 14;
                         return response.json();
 
-                    case 15:
+                    case 14:
                         body = context$3$0.sent;
 
                         if (!(response.status > 399)) {
-                            context$3$0.next = 21;
+                            context$3$0.next = 20;
                             break;
                         }
 
                         error = new Error(methodAndPath + ' ' + body.message);
                         throw error;
 
-                    case 21:
+                    case 20:
                         return context$3$0.abrupt("return", body);
 
-                    case 22:
+                    case 21:
                     case "end":
                         return context$3$0.stop();
                 }
