@@ -48,10 +48,6 @@ var __awaiter = undefined && undefined.__awaiter || function (thisArg, _argument
     });
 };
 
-var data;
-(function (data) {
-    ;
-})(data || (data = {}));
 function isVoid(val) {
     return val == null;
 } // also captures undefined

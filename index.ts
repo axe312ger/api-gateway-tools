@@ -1,4 +1,5 @@
 /// <reference path="typings/tsd.d.ts" />
+/// <reference path="data.d.ts" />
 import fetch from 'node-fetch'
 import AWS from 'aws-sdk'
 
@@ -10,41 +11,12 @@ interface SendRequest {
   <T>(methodAndPath: string, payload?: Payload): Promise<T>;
 }
 
-module data {
-  export interface List<T> {
-    item: Array<T>
-  };
-
-  export interface RestApi {
-    id: string;
-    name: string;
-  }
-
-  export interface Resource {
-    name: string;
-    id: string;
-    path: string;
-  }
-
-  export interface Method {
-  }
-
-  export interface Integration {
-  }
-
-  export interface IntegrationResponse {
-  }
-
-  export interface Response {
-  }
-}
-
-interface Resource {
+export interface Resource {
   id: string;
   updateMethod (httpMethod: string, params: Payload): Promise<Method>;
 }
 
-interface Method {
+export interface Method {
   arn (region: string, accountId: string, deploymentStage?: string): string;
   updateIntegration (params: Payload): Promise<Payload>;
   updateIntegrationResponse (statusCode: number, params: Payload): Promise<Payload>;
