@@ -10,13 +10,12 @@
     "node-fetch": "^1.3.2"
   },
   "devDependencies": {
-    "babel": "^5.8.21"
+    "babel": "^5.8.21",
+    "typescript": "^1.7.0"
   },
   "scripts": {
-    "Why we do the thing below": "We want to build master branch of TypeScript for async/await support",
-    "dev-setup": "git clone git@github.com:Microsoft/TypeScript && cd TypeScript && npm install && node_modules/.bin/jake local",
-    "prepublish": "[[ -d TypeScript ]] || npm run dev-setup; npm run typescript && npm run babel",
-    "typescript": "node TypeScript/built/local/tsc.js --experimentalAsyncFunctions --target ES6 index.ts",
+    "prepublish": "npm run typescript && npm run babel",
+    "typescript": "tsc --target ES6 index.ts",
     "babel": "babel --stage=2 index.js > index.es5.js"
   },
   "keywords": [
