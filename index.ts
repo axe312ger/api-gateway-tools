@@ -148,6 +148,8 @@ function createClient (region: string) {
   }
 }
 
-function first <T>(array: T[], pred: (item: T) => boolean): T|void {
-  return array.filter(pred)[0]
+function first <T>(array: T[]|void, pred: (item: T) => boolean): T|void {
+  if (Array.isArray(array)) {
+    return array.filter(pred)[0]
+  }
 }

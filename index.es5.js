@@ -320,7 +320,9 @@ function createClient(region) {
     };
 }
 function first(array, pred) {
-    return array.filter(pred)[0];
+    if (Array.isArray(array)) {
+        return array.filter(pred)[0];
+    }
 }
 module.exports = exports["default"];
 
